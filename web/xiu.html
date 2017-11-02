@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width:80px;
+            height:80px;
+            transform: translate(-50%, -50%);
+        }
+        .box img{
+        width:100%;
+        }
+        .box:before,
+        .box:after{
+            position: absolute;
+            top:50%;
+            left:50%;
+            content:"";
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            /*//阴影*/
+            box-shadow:0px 0px 5px rgba(255,0,0,0.5);
+            transition:all 2s linear 0s;
+            transform-origin:50% 50%;
+            /*//移动居中*/
+            transform: translate(-50%, -50%);
+        }
+        .box:after{
+            transition-delay:0.5s;
+        }
+        .box.active:before,
+        .box.active:after{
+            /*移动居中 scale 扩大四倍 旋转45度*/
+        transform: translate(-50%, -50%) scale(4) rotate(45deg);
+
+
+        opacity:0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./610198.jpg" alt="">
+    </div>
+</body>
+</html>
+<script>
+    var btn = document.querySelector(".box");
+    btn.onclick = function(){
+        this.classList.add("active");
+    }
+</script>
